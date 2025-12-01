@@ -1,26 +1,199 @@
+/* ============================================================
+   Escuelita Vóley Leones — Design System Oficial (2025)
+   ============================================================ */
+
 @import "tailwindcss";
 
+/* ------------------------------------------------------------
+   1) BASE COLORS (Dynamic background/foreground)
+------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;  /* Navy-marine oscuro */
+  --foreground: #e5e7eb;  /* Texto claro */
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
 }
 
+/* ------------------------------------------------------------
+   2) TAILWIND TOKENS (THEME INLINE)
+------------------------------------------------------------ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* 🎨 Primary (Azul del club) */
+  --color-primary-50:  #f0f9fb;
+  --color-primary-100: #d9f0f4;
+  --color-primary-200: #b8dfe7;
+  --color-primary-300: #86c5d4;
+  --color-primary-400: #4aa7bb;
+  --color-primary-500: #0e7490;  
+  --color-primary-600: #0c5f75;
+  --color-primary-700: #0b4f63;
+  --color-primary-800: #0a4153;
+  --color-primary-900: #083343;
+
+  /* 🟢 Accent (Verde oficial Leones) */
+  --color-accent-50:  #ecfff9;
+  --color-accent-100: #d9fff2;
+  --color-accent-200: #b4f5dc;
+  --color-accent-300: #6be7c1;
+  --color-accent-400: #35d6a7;
+  --color-accent-500: #17c18c; 
+  --color-accent-600: #0e9f74;
+  --color-accent-700: #0b7c5d;
+  --color-accent-800: #0a5c4a;
+  --color-accent-900: #083f33;
+
+  /* 🟦 Secondary (Cyan complementario) */
+  --color-secondary-500: #0ab5ff;
+  --color-secondary-700: #0073ad;
+
+  /* 🟢 Success */
+  --color-success-500: #22c55e;
+
+  /* 🟡 Warning */
+  --color-warning-500: #facc15;
+
+  /* 🔵 Info */
+  --color-info-500: #0ea5e9;
+
+  /* ------------------------------------------------------------
+     SPACING TOKENS (opcional)
+  ------------------------------------------------------------ */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+
+  /* ------------------------------------------------------------
+     SHADOWS & GRADIENTS
+  ------------------------------------------------------------ */
+
+  --shadow-soft: 0 4px 20px rgba(0,0,0,0.20);
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.45);
+
+  --gradient-card: linear-gradient(
+    135deg,
+    rgba(14, 116, 144, 0.10),
+    rgba(23, 193, 140, 0.10),
+    rgba(0, 0, 0, 0.40)
+  );
+
+  --gradient-hero: radial-gradient(
+    circle at 20% 20%,
+    rgba(23, 193, 140, 0.12),
+    rgba(14, 116, 144, 0.10),
+    rgba(0, 0, 0, 0.55)
+  );
+
+  --gradient-border: linear-gradient(
+    to right,
+    var(--color-primary-500),
+    var(--color-accent-500)
+  );
 }
 
+/* ------------------------------------------------------------
+   Dark Mode override
+------------------------------------------------------------ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #e5e7eb;
   }
 }
 
+/* ------------------------------------------------------------
+   Base Body
+------------------------------------------------------------ */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary (Azul) */
+.btn-primary {
+  background: var(--color-primary-500);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--color-primary-400);
+}
+
+/* Accent (Verde Leones) */
+.btn-accent {
+  background: var(--color-accent-500);
+  color: white;
+}
+.btn-accent:hover {
+  background: var(--color-accent-400);
+}
+
+/* Outline */
+.btn-outline {
+  border: 1px solid var(--color-primary-400);
+  color: var(--color-primary-300);
+}
+.btn-outline:hover {
+  border-color: var(--color-primary-300);
+  color: white;
+  background: var(--color-primary-400);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Accent Badge (verde) */
+.badge-accent {
+  color: var(--color-accent-500);
+  border: 1px solid var(--color-accent-600);
+  background: color-mix(in srgb, var(--color-accent-900) 20%, transparent);
+}
+
+.card {
+  background: var(--gradient-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid #0d1b2a;
+  box-shadow: var(--shadow-soft);
+}
+
+.tag {
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 6px;
+  background: var(--color-primary-900);
+  color: var(--color-primary-300);
+}
+
+.input {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: white;
+}
+.input:focus {
+  border-color: var(--color-primary-400);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
+}
+
