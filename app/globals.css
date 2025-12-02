@@ -5,7 +5,7 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------
-   1) BASE COLORS (Dynamic background/foreground)
+  BASE COLORS (Dynamic background/foreground)
 ------------------------------------------------------------ */
 :root {
   --background: #020617;  /* Navy-marine oscuro */
@@ -17,7 +17,41 @@
 }
 
 /* ------------------------------------------------------------
-   2) TAILWIND TOKENS (THEME INLINE)
+  Animaciones personalizadas
+------------------------------------------------------------ */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ------------------------------------------------------------
+  TAILWIND TOKENS (THEME INLINE)
 ------------------------------------------------------------ */
 @theme inline {
 
@@ -93,6 +127,15 @@
     var(--color-primary-500),
     var(--color-accent-500)
   );
+
+    /* ------------------------------------------------------------
+     Animaciones Tailwind (animate-*)
+  ------------------------------------------------------------ */
+  --animate-spin-slow: spin 6s linear infinite;
+  --animate-bounce-soft: bounce-soft 2.5s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.8s ease-out both;
+  --animate-fade-right: fade-right 0.9s ease-out both;
+
 }
 
 /* ------------------------------------------------------------

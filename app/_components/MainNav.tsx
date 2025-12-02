@@ -1,29 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import ClubLogo from "./ClubLogo";
 import Link from "next/link";
 
 export function MainNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur">
-      <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur overflow-visible">
+      <nav className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between h-20">
         {/* Logo / nombre del club */}
-        <Link href="/" className="font-bold text-base sm:text-lg">
-          Escuelita Vóley Leones
+        <Link href="/" className="flex items-center -ml-4 md:-ml-8 lg:-ml-16">
+          <ClubLogo variant="nav" />
         </Link>
 
         {/* Botones del menú en desktop */}
         <div className="hidden md:flex gap-4 text-sm">
           <Link href="/club" className="hover:text-accent-400">
             El club
-          </Link>
-          <Link href="/players" className="hover:text-accent-400">
-            Jugadores
-          </Link>
-          <Link href="/tournaments" className="hover:text-accent-400">
-            Torneos
           </Link>
           <Link href="/trainings" className="hover:text-accent-400">
             Entrenamientos
@@ -82,21 +77,7 @@ export function MainNav() {
               El club
             </Link>
             <Link
-              href="/players"
-              className="py-1 hover:text-accent-400"
-              onClick={() => setOpen(false)}
-            >
-              Jugadores
-            </Link>
-            <Link
-              href="/tournaments"
-              className="py-1 hover:text-accent-400"
-              onClick={() => setOpen(false)}
-            >
-              Torneos
-            </Link>
-            <Link
-              href="/training"
+              href="/trainings"
               className="py-1 hover:text-accent-400"
               onClick={() => setOpen(false)}
             >

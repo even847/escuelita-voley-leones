@@ -1,22 +1,26 @@
-// app/page.tsx
 import Link from "next/link";
+import AnimatedVolleyBall from "./_components/AnimatedVolleyBall";
 
 export default function HomePage() {
   return (
-    <section className="pb-10 space-y-10 sm:pt-10">
+    <section className="pb-10 space-y-10">
       {/* HERO PRINCIPAL */}
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
         {/* Columna izquierda: texto principal */}
-        <div className="space-y-3 sm:space-y-6 mt-1">
+        <div className="space-y-3 sm:space-y-6 mt-1 animate-fade-up">
           {/* Badge superior */}
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-brand-500/10 text-brand-300 border border-brand-500/30">
-            🏐 Escuelita de voleibol para niños y jóvenes
+            {/* 🏐 Club de voleibol formativo para niños y jóvenes */}
+            Club de voleibol formativo para niños y jóvenes
           </span>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-brand-400 leading-tight">
-            Bienvenido a la{" "}
-            <span className="text-brand-500">Escuelita Vóley Leones</span>
-          </h1>
+          {/* Título + pelota animada */}
+          <div className="flex items-center gap-3">
+            <AnimatedVolleyBall />
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-50 leading-tight">
+              Escuelita <span className="text-brand-200">Vóley Leones</span>
+            </h1>
+          </div>
 
           <p className="text-slate-200 max-w-xl text-sm sm:text-base leading-relaxed">
             Entrenamos a niños y jóvenes en voleibol, fomentando el trabajo en
@@ -46,12 +50,12 @@ export default function HomePage() {
 
           {/* Línea de info rápida */}
           <p className="text-xs sm:text-sm text-slate-400">
-            📍 Gimnasio Colegio Real · 🕒 Sábados · Nivel de formación.
+            🕒 Sábados · Nivel de formación.
           </p>
         </div>
 
         {/* Columna derecha: tarjeta “Próximo entrenamiento” */}
-        <div className="relative">
+        <div className="relative animate-fade-right [animation-delay:150ms]">
           <div className="absolute inset-0 bg-linear-to-br from-brand-500/20 via-brand-400/10 to-sky-500/20 blur-3xl -z-10" />
 
           <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl space-y-5">
@@ -67,10 +71,12 @@ export default function HomePage() {
                 <span className="font-semibold">Categoría:</span> Sub14
               </p>
               <p>
-                <span className="font-semibold">Día y hora:</span> Todos los Sabados de 11:30 - 13:00
+                <span className="font-semibold">Día y hora:</span> Todos los
+                Sabados de 11:30 - 13:00
               </p>
               <p>
-                <span className="font-semibold">Lugar:</span> Gimnasio Colegio Real o Gimnasio Discapacitados
+                <span className="font-semibold">Lugar:</span> Gimnasio Colegio
+                Real o Gimnasio Discapacitados
               </p>
             </div>
 
@@ -87,7 +93,9 @@ export default function HomePage() {
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-950/60 px-3 py-2">
                 <p className="text-[0.65rem] text-slate-400">Nivel</p>
-                <p className="text-base font-semibold text-sky-300">Inicial</p>
+                <p className="text-base font-semibold text-sky-300">
+                  Formativo
+                </p>
               </div>
             </div>
 
@@ -104,29 +112,6 @@ export default function HomePage() {
       {/* BLOQUES INFORMATIVOS (abajo) */}
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <h3 className="font-semibold mb-1 text-slate-50">Entrenamientos</h3>
-          <p className="text-xs text-slate-400">
-            Días y horarios de práctica, niveles y categorías disponibles.
-          </p>
-
-          <ul className="mt-3 space-y-2 text-xs text-slate-300">
-            <li>
-              📅 <strong>Sábados</strong> - 11:30 a 13:00
-            </li>
-            <li>📍 Gimnasio Colegio Real</li>
-            <li>👦 Categoría: Sub 14</li>
-            <li>🏐 Nivel: Inicial y formativo</li>
-          </ul>
-
-          <Link
-            href="/trainings"
-            className="inline-block mt-3 text-accent-300 hover:text-accent-200 text-xs underline underline-offset-4"
-          >
-            Ver detalles →
-          </Link>
-        </div>
-
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
           <h3 className="font-semibold mb-1 text-slate-50">Entrenamientos</h3>
           <p className="text-xs text-slate-400">
             Días y horarios de práctica, niveles y categorías disponibles.
