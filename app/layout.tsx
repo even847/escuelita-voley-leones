@@ -3,8 +3,8 @@ import "./globals.css";
 import { MainNav } from "./_components/MainNav";
 
 export const metadata: Metadata = {
-  title: "Escuelita Vóley Leones",
-  description: "Sitio oficial de la escuelita de voleibol Leones",
+  title: "Club Voleibol Leones",
+  description: "Sitio oficial de la escuelita de voleibol Leones"
 };
 
 export default function RootLayout({

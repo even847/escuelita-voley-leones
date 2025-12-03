@@ -1,12 +1,14 @@
+import UnderConstruction from "../_components/UnderConstruction";
+
 const TrainingPage = () => {
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-bold text-amber-300">Entrenamientos</h1>
-      <p className="text-slate-200">
-        Información sobre practicas y entrenamientos.
-        Más adelante esta sección tendra mas cosas.
-      </p>
-    </section>
+        <section className="pb-10 space-y-6">
+          <UnderConstruction
+            sectionName="Entrenamientos"
+            fullHeight={false}
+            message="Estamos preparando esta sección para mostrar los próximos entrenaminetos. Muy pronto tendrás más información aquí."
+          />
+        </section>
   );
 }
 
