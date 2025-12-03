@@ -1,33 +1,75 @@
+// app/_components/AnimatedVolleyBall.tsx
 "use client";
 
 import Image from "next/image";
 
-export default function AnimatedVolleyBall() {
+type AnimatedVolleyBallProps = {
+  /** "inline" = dentro del texto (como la 'o'); "hero" = versión grande */
+  variant?: "inline" | "hero";
+};
+
+export default function AnimatedVolleyBall({
+  variant = "inline",
+}: AnimatedVolleyBallProps) {
+  if (variant === "hero") {
+    // 🔹 Versión grande (por si la usas en otro sitio, hero, etc.)
+    return (
+      <div className="relative inline-flex h-20 w-20 items-end justify-center">
+        {/* Glow / sombra debajo del balón */}
+        <div
+          className="
+            pointer-events-none absolute bottom-2
+            h-2 w-16 rounded-full
+            animate-[ball-shadow-glow_1.5s_cubic-bezier(0.33,0.66,0.66,1)_infinite]
+          "
+        />
+
+        {/* Balón que solo rebota */}
+        <div
+          className="
+            relative z-10 origin-bottom
+            animate-[ball-bounce-only_1.5s_ease-in-out_infinite]
+          "
+        >
+          <Image
+            src="/balon-voley-transparente.png"  
+            alt="Balón de vóley"
+            width={64}
+            height={64}
+            className="w-16 h-16 drop-shadow-xl"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // 🔹 Versión inline: la que usas como la segunda "o" de Voleibol
   return (
-    <div className="group relative flex items-center justify-center">
-      {/* Glow detrás */}
+    <div className="relative inline-block w-18 h-12 align-middle -mx-0.5">
       <div
         className="
-          absolute inset-0 h-14 w-14
-          rounded-full bg-brand-500/20 blur-xl
-          opacity-60 group-hover:opacity-100
-          transition-opacity duration-500
+          pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2
+          h-1.5 w-9 rounded-full
+          bg-emerald-400/25 blur-md
+          animate-[ball-shadow-glow_1.4s_ease-in-out_infinite]
         "
       />
 
-      {/* Imagen principal */}
-      <Image
-        src="/balon-voley-dark.png"
-        alt="Balón de vóley"
-        width={58}
-        height={58}
+      {/* Balón que rebota */}
+      <div
         className="
-          relative z-10
-          animate-bounce-soft
-          transition-transform duration-500
-          group-hover:animate-spin-slow group-hover:scale-110
+          absolute left-1/2 -translate-x-1/2 -bottom-0.5 origin-bottom z-10
+          animate-[ball-bounce-only_1.4s_ease-in-out_infinite]
         "
-      />
+      >
+        <Image
+          src="/balon-voley-transparente.png"  
+          alt="Balón de vóley"
+          width={56}
+          height={56}
+          className="w-14 h-14 drop-shadow-xl"
+        />
+      </div>
     </div>
   );
 }
