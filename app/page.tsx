@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnimatedVolleyBall from "./_components/AnimatedVolleyBall";
+import GalleryCarousel from "./_components/GalleryCarousel";
 
 export default function HomePage() {
   return (
@@ -7,7 +8,7 @@ export default function HomePage() {
       {/* HERO PRINCIPAL */}
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] items-start">
         {/* Columna izquierda: texto principal */}
-        <div className="space-y-3 sm:space-y-6 mt-1 animate-fade-up">
+        <div className="space-y-3 sm:space-y-6 mt-1 ">
           {/* Badge superior */}
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-medium bg-brand-500/10 text-brand-300 border border-brand-500/30">
             {/* 🏐 Club de voleibol formativo para niños y jóvenes */}
@@ -18,7 +19,7 @@ export default function HomePage() {
           <div className="flex items-center gap-3">
             <AnimatedVolleyBall />
             <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-50 leading-tight">
-              Escuelita <span className="text-brand-200">Vóley Leones</span>
+              Club <span className="text-brand-200">Voleibol Leones</span>
             </h1>
           </div>
 
@@ -31,27 +32,31 @@ export default function HomePage() {
 
           {/* Botones de acción */}
           <div className="flex flex-col sm:flex-row gap-3">
-            {/* CTA principal */}
             <Link
               href="/players"
-              className="w-full sm:w-auto text-center inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-accent-500 text-white text-sm font-semibold shadow-md hover:bg-accent-400 focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+              className="
+                w-full sm:w-auto text-center inline-flex items-center justify-center
+                px-6 py-2.5 rounded-full text-sm font-semibold
+                bg-accent-500 text-white border border-accent-500
+                transition-all duration-200
+                hover:bg-transparent hover:text-accent-400 hover:shadow-accent-400/20 hover:shadow-md
+                hover:-translate-y-0.5"
             >
               Ver categorías y jugadores
             </Link>
 
-            {/* Secundario */}
             <Link
               href="/contact"
-              className="w-full sm:w-auto text-center inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-slate-600 text-slate-100 text-sm font-semibold hover:border-brand-400 hover:text-brand-300 transition"
+              className="
+                w-full sm:w-auto text-center inline-flex items-center justify-center
+                px-5 py-2.5 rounded-full border border-slate-600 text-slate-100 text-sm font-semibold
+                transition-all duration-200
+              hover:border-accent-400 hover:text-accent-300 hover:bg-accent-500/10 hover:shadow-accent-400/20 hover:shadow-md hover:-translate-y-0.5"
             >
               Inscribir a un jugador
             </Link>
           </div>
 
-          {/* Línea de info rápida */}
-          <p className="text-xs sm:text-sm text-slate-400">
-            🕒 Sábados · Nivel de formación.
-          </p>
         </div>
 
         {/* Columna derecha: tarjeta “Próximo entrenamiento” */}
@@ -101,47 +106,27 @@ export default function HomePage() {
 
             <Link
               href="/contact"
-              className="block text-center text-xs font-semibold text-brand-300 hover:text-brand-200 underline underline-offset-4"
+              className="
+                group mt-2 inline-flex w-full items-center justify-center
+                rounded-full border border-emerald-500/40 bg-emerald-500/5
+                px-4 py-2 text-[11px] font-semibold text-emerald-200
+                transition-all duration-200
+                hover:bg-emerald-500/15 hover:text-emerald-50 hover:border-emerald-400"
             >
-              Hablar con el entrenador para más detalles →
+              <span>Hablar con el entrenador para más detalles</span>
+              <span
+                className="
+                  ml-1 text-xs transition-transform duration-200
+                  group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* BLOQUES INFORMATIVOS (abajo) */}
-      <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <h3 className="font-semibold mb-1 text-slate-50">Entrenamientos</h3>
-          <p className="text-xs text-slate-400">
-            Días y horarios de práctica, niveles y categorías disponibles.
-          </p>
-
-          <ul className="mt-3 space-y-2 text-xs text-slate-300">
-            <li>
-              📅 <strong>Sábados</strong> - 13:00 a 15:00
-            </li>
-            <li>📍 Gimnasio Colegio Real</li>
-            <li>👦 Categoría: Sub 18</li>
-            <li>🏐 Nivel: Competitivo</li>
-          </ul>
-
-          <Link
-            href="/trainings"
-            className="inline-block mt-3 text-accent-300 hover:text-accent-200 text-xs underline underline-offset-4"
-          >
-            Ver detalles →
-          </Link>
-        </div>
-
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <h3 className="font-semibold mb-1 text-slate-50">Torneos</h3>
-          <p className="text-xs text-slate-300">
-            Amistosos, torneos locales y resultados recientes de todas las
-            categorías.
-          </p>
-        </div>
-      </div>
+      <GalleryCarousel />
     </section>
   );
 }
