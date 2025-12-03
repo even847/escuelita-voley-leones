@@ -157,9 +157,9 @@ export default function ContactPage() {
               />
             </div>
 
-            <button type="button" className="btn btn-accent w-full md:w-auto">
+            {/* <button type="button" className="btn btn-accent w-full md:w-auto">
               Enviar mensaje
-            </button>
+            </button> */}
 
             <p className="text-[11px] text-slate-500">
               * Este formulario es solo de contacto informativo. La inscripción

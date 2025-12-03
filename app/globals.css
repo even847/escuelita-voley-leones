@@ -20,11 +20,14 @@
   Animaciones personalizadas
 ------------------------------------------------------------ */
 @keyframes bounce-soft {
-  0%, 100% {
-    transform: translateY(0);
+  0% {
+    transform: translateY(6px);   /* baja */
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-12px); /* sube */
+  }
+  100% {
+    transform: translateY(6px);   /* baja */
   }
 }
 
@@ -43,6 +46,17 @@
   0% {
     opacity: 0;
     transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
   }
   100% {
     opacity: 1;
@@ -135,6 +149,7 @@
   --animate-bounce-soft: bounce-soft 2.5s ease-in-out infinite;
   --animate-fade-up: fade-up 0.8s ease-out both;
   --animate-fade-right: fade-right 0.9s ease-out both;
+  --animate-fade-left: fade-left 0.9s ease-out both;
 
 }
 
@@ -239,4 +254,3 @@ body {
   outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
 }
-
