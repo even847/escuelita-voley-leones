@@ -17,10 +17,10 @@ export default function HomePage() {
 
           {/* Título + pelota animada */}
           <div className="flex items-center gap-3">
-            <AnimatedVolleyBall />
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-50 leading-tight">
-              Club <span className="text-brand-200">Voleibol Leones</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-50 leading-tight ">
+               <span className="text-brand-200 ">Club Voleibol Leones</span>
             </h1>
+            <AnimatedVolleyBall variant="inline"/>
           </div>
 
           <p className="text-slate-200 max-w-xl text-sm sm:text-base leading-relaxed">
@@ -56,7 +56,6 @@ export default function HomePage() {
               Inscribir a un jugador
             </Link>
           </div>
-
         </div>
 
         {/* Columna derecha: tarjeta “Próximo entrenamiento” */}

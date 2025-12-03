@@ -31,6 +31,78 @@
   }
 }
 
+/* Rebote vertical */
+@keyframes ball-bounce-only {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-18px); /* altura del salto */
+  }
+}
+
+@keyframes ball-shadow-squash {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.35;
+    background: rgba(0, 255, 150, 0.35); /* Verde Leones */
+  }
+  50% {
+    transform: scaleX(0.6);
+    opacity: 0.15;
+    background: rgba(0, 255, 150, 0.15);
+  }
+}
+
+@keyframes ball-shadow-glow {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.40;
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.35),   /* cyan-400 */
+      rgba(16, 185, 129, 0.20),  /* emerald-500 */
+      rgba(0, 0, 0, 0.45)
+    );
+  }
+
+  50% { /* momento exacto donde la pelota cae */
+    transform: scaleX(0.6);
+    opacity: 0.75;
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.50), /* emerald más fuerte */
+      rgba(56, 189, 248, 0.40), /* cyan */
+      rgba(0, 0, 0, 0.25)
+    );
+    filter: blur(4px);
+  }
+}
+
+/* Texto vibra cuando la pelota "golpea" el piso */
+@keyframes text-impact-shake {
+  0%, 80%, 100% {
+    transform: translateX(0);
+  }
+  2% {
+    transform: translateX(-3px);
+  }
+  4% {
+    transform: translateX(3px);
+  }
+  6% {
+    transform: translateX(-4px);
+  }
+  8% {
+    transform: translateX(4px);
+  }
+  10% {
+    transform: translateX(0);
+  }
+}
+
+
 @keyframes fade-up {
   0% {
     opacity: 0;
