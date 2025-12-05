@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { MainNav } from "./_components/MainNav";
+import MainNav from "./_components/MainNav";
+import Footer from "./_components/Footer"
 
 export const metadata: Metadata = {
   title: "Club Voleibol Leones",
@@ -23,12 +24,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="border-t border-slate-800">
-          <div className="max-w-6xl mx-auto px-4 py-4 text-xs text-slate-400">
-            © {new Date().getFullYear()} Escuelita Vóley Leones. Todos los
-            derechos reservados.
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

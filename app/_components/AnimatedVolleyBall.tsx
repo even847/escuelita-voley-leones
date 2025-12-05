@@ -49,8 +49,7 @@ export default function AnimatedVolleyBall({
       <div
         className="
           pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2
-          h-1.5 w-9 rounded-full
-          bg-emerald-400/25 blur-md
+          h-1.5 w-9 rounded-full bg-accent-400/25 blur-md
           animate-[ball-shadow-glow_1.4s_ease-in-out_infinite]
         "
       />

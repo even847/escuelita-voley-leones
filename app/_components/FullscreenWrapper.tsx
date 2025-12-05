@@ -5,15 +5,17 @@ type FullscreenWrapperProps = {
   children: ReactNode;
 };
 
-export function FullscreenWrapper({
+const FullscreenWrapper = ({
   isFullscreen,
   children,
-}: FullscreenWrapperProps) {
+}: FullscreenWrapperProps) => {
   return isFullscreen ? (
-    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-primary-900/90 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl">{children}</div>
     </div>
   ) : (
     <div className="w-full max-w-5xl mx-auto">{children}</div>
   );
 }
+
+export default FullscreenWrapper;

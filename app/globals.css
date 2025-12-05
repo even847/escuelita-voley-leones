@@ -136,6 +136,28 @@
   }
 }
 
+/* Efecto de brillo que recorre el texto */
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Efecto de aparición del texto (fade + slide up) */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ------------------------------------------------------------
   TAILWIND TOKENS (THEME INLINE)
 ------------------------------------------------------------ */
@@ -321,8 +343,24 @@ body {
   border-radius: var(--radius-md);
   color: white;
 }
+
 .input:focus {
   border-color: var(--color-primary-400);
   outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
+}
+
+.text-shine {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #00f5a0 20%,
+    #00d9f5 40%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite, fadeUp 1.2s ease forwards;
 }
